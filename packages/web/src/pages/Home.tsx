@@ -14,8 +14,6 @@ const Home = () => {
   const [offset, setOffset] = useState(0);
   const [errMsg, setErrMsg] = useState('');
 
-  const API_KEY = import.meta.env.REACT_APP_GIPHY_API_KEY;
-
   const searchGifs = async (resetResults = false) => {
     setIsLoading(true);
     const currentOffset = resetResults ? 0 : offset;
@@ -25,7 +23,8 @@ const Home = () => {
         method: 'GET',
         url: 'https://api.giphy.com/v1/gifs/search',
         params: {
-          api_key: API_KEY,
+          // could not work out how to read from .env on staged deployment (I know this is a security flaw)
+          api_key: '8kvPtqIgRn9WY8ESwKoEOt3UgmbxKjrO',
           q: query,
           limit: GIF_LIMIT,
           offset: currentOffset,
