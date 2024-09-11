@@ -23,6 +23,7 @@ $breakSize: $md;
   align-items: $align;
 }
 
+// Animations
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -30,5 +31,24 @@ $breakSize: $md;
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 60%;
+  }
+  50% {
+    opacity: 100%;
   }
 }

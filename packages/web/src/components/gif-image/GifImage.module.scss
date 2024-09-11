@@ -9,6 +9,7 @@
     object-fit: cover;
     border-radius: 0.5rem;
     border: 2px solid #aaa;
+    animation: fade-in ease 1.25s;
   }
 
   &__linkBtns {

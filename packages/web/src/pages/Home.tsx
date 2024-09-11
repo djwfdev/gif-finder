@@ -89,46 +89,56 @@ const Home = (): JSX.Element => {
       </div>
 
       {/* GIF Grid */}
-      {errMsg && <div className={styles.page__error}>{errMsg}</div>}
-      {!errMsg && query.length > 0 && gifs.length > 0 && (
-        <div className={styles.page__grid}>
-          {gifs.map((gif: Gif, idx: number) => (
-            <GifImage
-              key={`${gif.id}-${idx}`}
-              src={gif.images.fixed_width.url}
-              alt={gif.title}
-              width={gif.images.fixed_width.width}
-              height={gif.images.fixed_width.height}
-              url={gif.images.fixed_width.url}
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Footer Buttons */}
-      {!errMsg && gifs.length > 0 && (
-        <div className={styles.page__footerBtns}>
-          {/* Load More Button */}
-          <Button onClick={handleLoadMore} disabled={isLoading}>
-            {isLoading ? (
-              <LoaderCircle
-                className={`${styles.icon} ${styles.icon__loader}`}
+      {errMsg ? (
+        <div className={styles.page__error}>{errMsg}</div>
+      ) : (
+        <>
+          <div className={styles.page__grid}>
+            {gifs.map((gif: Gif, idx: number) => (
+              <GifImage
+                key={`${gif.id}-${idx}`}
+                src={gif.images.fixed_width.url}
+                alt={gif.title}
+                width={gif.images.fixed_width.width}
+                height={gif.images.fixed_width.height}
+                url={gif.images.fixed_width.url}
               />
-            ) : (
-              <ChevronDown className={styles.icon} />
-            )}
-            &nbsp;Load More
-          </Button>
-          {/* Return to Top */}
-          <Button
-            onClick={() =>
-              window.scrollTo({ top: 0, behavior: 'smooth' })
+            ))}
+
+            {/* Loading Skeleton */}
+            {isLoading &&
+              Array.from({ length: 12 }).map((_, idx) => (
+                <div
+                  key={`placeholder-${idx}`}
+                  className={styles.page__grid__placeholder}
+                />
+              ))
             }
-          >
-            <ArrowUp className={styles.icon} />
-            &nbsp;Back to Top
-          </Button>
-        </div>
+          </div>
+
+          {/* Footer Buttons */}
+          {gifs.length > 0 && (
+            <div className={styles.page__footerBtns}>
+              {/* Load More Button */}
+              <Button onClick={handleLoadMore} disabled={isLoading}>
+                {isLoading ? (
+                  <LoaderCircle
+                    className={`${styles.icon} ${styles.icon__loader}`}
+                  />
+                ) : (
+                  <ChevronDown className={styles.icon} />
+                )}
+                &nbsp;Load More
+              </Button>
+
+              {/* Return to Top */}
+              <Button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <ArrowUp className={styles.icon} />
+                &nbsp;Back to Top
+              </Button>
+            </div>
+          )}
+        </>
       )}
     </main>
   );

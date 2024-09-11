@@ -59,6 +59,14 @@
         @media (min-width: 768px) {
             grid-template-columns: repeat(4, 1fr);
         }
+
+        &__placeholder {
+            border-radius: 0.5rem;
+            background-color: #e4e4e4;
+            height: 160px;
+            width: 100%;
+            animation: pulse 3s infinite
+        }
     }
 
     &__footerBtns {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ExternalLink, Link } from 'lucide-react';
-import styles from './GifImage.module.scss';
 import Button from '../button/Button';
+import styles from './GifImage.module.scss';
 
 interface GifImageProps {
   src: string;
@@ -26,6 +26,7 @@ const GifImage = ({
         width={width}
         height={height}
         className={styles.gif__img}
+        loading='lazy'
       />
       <div className={styles.gif__linkBtns}>
         <Button
