@@ -7,9 +7,9 @@ import Input from '../components/input/Input';
 import GifImage from '../components/gif-image/GifImage';
 import styles from './Home.module.scss';
 
-const Home = () => {
+const Home = (): JSX.Element => {
   const [query, setQuery] = useState('');
-  const [gifs, setGifs] = useState([]);
+  const [gifs, setGifs] = useState<Gif[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [offset, setOffset] = useState(0);
   const [errMsg, setErrMsg] = useState('');
