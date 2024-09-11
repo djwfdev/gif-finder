@@ -2,7 +2,7 @@
 
 .userSettings {
   h1 {
-    @include global.largeFont();
+    @include global.large-font();
     margin-bottom: 32px;
     font-weight: 700;
   }

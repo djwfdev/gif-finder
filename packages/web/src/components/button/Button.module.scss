@@ -1,0 +1,67 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/colours.scss' as *;
+
+// Define mixin for button sizes
+@mixin button-size($size) {
+  @if $size =='icon' {
+    padding: 0.35rem;
+  }
+
+  @else if $size =='small' {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  @else if $size =='medium' {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  @else if $size =='large' {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+// Define mixin for button styles
+@mixin button-style($colour, $bg-colour, $border-colour) {
+  color: $colour;
+  background-color: $bg-colour;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: darken($bg-colour, 25%);
+    color: lighten($colour, 15%);
+  }
+
+  &:active {
+    outline: none;
+    box-shadow: 0 0 0 0.1rem rgba($border-colour, 0.5);
+  }
+}
+
+.button {
+  @include flex-center();
+  @include button-style($background, $primary, $primary);
+
+  &.icon {
+    @include button-size('icon');
+  }
+
+  &.small {
+    @include button-size('small');
+  }
+
+  &.medium {
+    @include button-size('medium');
+  }
+
+  &.large {
+    @include button-size('large');
+  }
+
+  &.ghost {
+    @include button-style($background, hsla(0, 0%, 0%, 0.65), hsla(0, 0%, 0%, 0.15));
+  }
+}

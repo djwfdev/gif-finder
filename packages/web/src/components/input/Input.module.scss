@@ -1,0 +1,15 @@
+@use '../../styles/colours.scss' as *;
+
+input {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+  border-color: $accent;
+  box-shadow: 0 0 0 0.1rem $accent;
+}

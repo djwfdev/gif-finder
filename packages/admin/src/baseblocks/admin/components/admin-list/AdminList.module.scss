@@ -41,7 +41,7 @@
         }
 
         .name {
-          @include global.largeFont();
+          @include global.large-font();
           margin-bottom: 8px;
           font-weight: bold;
         }
