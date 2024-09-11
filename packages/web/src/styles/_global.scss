@@ -12,7 +12,7 @@ $breakSize: $md;
   font: $style normal $weight 40px/49px $fontFace, $fallback;
 
   @media screen and (max-width: $breakSize) {
-    font: $style normal $weight 24px/32px $fontFace, $fallback;
+    font: $style normal $weight 28px/36px $fontFace, $fallback;
   }
 }
 
