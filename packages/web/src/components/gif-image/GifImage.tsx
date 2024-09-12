@@ -26,7 +26,6 @@ const GifImage = ({
         width={width}
         height={height}
         className={styles.gif__img}
-        loading='lazy'
       />
       <div className={styles.gif__linkBtns}>
         <Button
